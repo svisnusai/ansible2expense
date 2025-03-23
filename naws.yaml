@@ -21,16 +21,16 @@
   
   - name: check the result output
     ansible.builtin.debug:
-      msg: "{{qserver}}"
+      msg: "{{ qserver }}"
   
   - name: create rout53 records
     amazon.aws.route53:
       state: present
       zone: "{{ zone }}"
-      record: "{{item.item}}.{{zone}}"
+      record: "{{ item.item }}.{{ zone }}"
       type: A
       ttl: 1
-      value: "{{item.instance[0].private_ip_address}}"
+      value: "{{item.instances[0].private_ip_address}}"
       wait: true
       overwrite: true     
     loop: "{{qserver.results}}"
