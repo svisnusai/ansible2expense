@@ -6,6 +6,7 @@
     - mysql
     - backend
     - frontend
+  zone: "rupakalpan.shop"
   tasks:
   - name: create ec2 instances
     amazon.aws.ec2_instance:
@@ -17,6 +18,24 @@
     
     loop: "{{naws}}"
     register: qserver
+  
   - name: check the result output
     ansible.builtin.debug:
       msg: "{{qserver}}"
+  
+  # - name: create rout53 records
+  #   amazon.aws.route53:
+  #     state: present
+  #     zone: "{{ zone }}"
+  #     record: "{{qserver.result.item}}.{{zone}}"
+  #     type: A
+  #     ttl: 7200
+  #     value: "{{private_ip_address}}"
+  #     wait: true
+  #   loop: "{{qserver.results.instance[0].private_ip_address}}"
+  
+  - name: check the record
+    vars:
+      record: "{{qserver.result.item}}.{{zone}}"
+    ansible.builtin.debug:
+      msg: "{{ record }}"
