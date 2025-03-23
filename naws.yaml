@@ -45,5 +45,5 @@
       value: "{{item.instances[0].public_ip_address}}"
       wait: true
       overwrite: true     
-    loop: "{{qserver.results}}"
+    loop: "{{ qserver.results }}"
     when: item.item == "frontend"
