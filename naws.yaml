@@ -17,3 +17,6 @@
     
     loop: "{{naws}}"
     register: qserver
+  - name: check the result output
+    ansible.builtin.debug:
+      msg: "{{qserver}}"
