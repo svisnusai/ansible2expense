@@ -36,6 +36,6 @@
   
   - name: check the record
     vars:
-      record: "{{qserver.result.item}}.{{zone}}"
+      record: "{{qserver.results.item}}.{{zone}}"
     ansible.builtin.debug:
       msg: "{{ record }}"
