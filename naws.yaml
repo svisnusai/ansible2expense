@@ -6,7 +6,7 @@
     - mysql
     - backend
     - frontend
-  zone: "rupakalpan.shop"
+    zone: "rupakalpan.shop"
   tasks:
   - name: create ec2 instances
     amazon.aws.ec2_instance:
