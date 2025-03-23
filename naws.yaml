@@ -7,6 +7,7 @@
     - backend
     - frontend
     zone: "rupakalpan.shop"
+    record: "{{item.item}}.{{zone}}"
   tasks:
   - name: create ec2 instances
     amazon.aws.ec2_instance:
@@ -35,7 +36,5 @@
   #   loop: "{{qserver.results.instance[0].private_ip_address}}"
   
   - name: check the record
-    vars:
-      record: "{{item.item}}.{{zone}}"
     ansible.builtin.debug:
       msg: "{{ record }}"
