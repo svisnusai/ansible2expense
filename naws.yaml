@@ -35,3 +35,15 @@
       overwrite: true     
     loop: "{{qserver.results}}"
   
+  - name: create rout53 records for public ip address
+    amazon.aws.route53:
+      state: present
+      zone: "{{ zone }}"
+      record: "{{ item.item }}.{{ zone }}"
+      type: A
+      ttl: 1
+      value: "{{item.instances[0].public_ip_address}}"
+      wait: true
+      overwrite: true     
+    loop: "{{qserver.results}}"
+    when: qserver.results.item == "frontend"
