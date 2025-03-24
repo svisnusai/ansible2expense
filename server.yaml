@@ -4,8 +4,4 @@
   tasks:
   - name: Check connectivity
     ansible.builtin.ping:
-        - name: Install nginx
-          become: true
-          package:
-            name: nginx
-            state: present
+        
