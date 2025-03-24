@@ -1,5 +1,6 @@
 - name: mysqlserver
   hosts: mysql
+  connection: ip_address
   become: yes
   tasks:
   - name: mysql server
