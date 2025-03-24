@@ -1,7 +1,6 @@
 - name: mysqlserver
   hosts: mysql
   become: yes
-  
   tasks:
   - name: mysql server
     ansible.builtin.package:
