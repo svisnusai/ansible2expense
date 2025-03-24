@@ -1,0 +1,11 @@
+- name: record name
+  hosts: server
+  become: yes
+  tasks:
+  - name: Check connectivity
+    ansible.builtin.ping:
+        - name: Install nginx
+          become: true
+          package:
+            name: nginx
+            state: present

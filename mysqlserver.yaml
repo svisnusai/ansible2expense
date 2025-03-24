@@ -1,9 +1,10 @@
 - name: mysqlserver
   hosts: mysql
-  connection: ip_address
-  become: yes
+  connection: ip_addressyes
+  become: true
   tasks:
   - name: mysql server
+    ping:
     ansible.builtin.package:
       name: mysql-server
       state: present
