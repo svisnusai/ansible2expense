@@ -1,6 +1,6 @@
 - name: mysqlserver
   hosts: mysql
-  become: true
+  become: yes
   tasks:
   - name: mysql server
     ping:
