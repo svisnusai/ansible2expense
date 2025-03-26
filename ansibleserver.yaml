@@ -2,7 +2,7 @@
   hosts: local
   connection: local
   vars:
-    ansibleserver:
+    nexus:
     - mysql
     - backend
     - frontend
